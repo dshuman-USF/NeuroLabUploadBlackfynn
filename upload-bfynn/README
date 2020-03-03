@@ -1,0 +1,23 @@
+This is a table driven program that uses a .csv file to map your file system's
+organization and naming conventions to the MAP-Core file system and naming
+conventions. The .csv file format is documented in:
+
+     TEMPLATE-for-SPARC-list-of-files-to-upload.xlsx
+
+It creates the required directory hierearchy as specified by:
+https://docs.google.com/presentation/d/1EQPn1FmANpPsFt3CguU-JOQVMMlJsNXluQAK_gb2qVg/edit#slide=id.p1
+
+The dataset must already exist and you need to have an API key. That process is
+documented here:
+
+https://developer.blackfynn.io/python/latest/index.html
+
+The program creates collections if required and uploads local files to the
+Blackfynn site. Collections and datapackages are renamed according to the
+standards.
+
+This can be run from a command line window.
+Most users should use upload_bfynn_win.pyw program.
+This provies a GUI wrapper that uses this class and is a lot friendlier to use.
+
+Copyright (c) 2019 by Kendall F. Morris

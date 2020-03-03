@@ -1,0 +1,99 @@
+            Blackfynn Uploader Installation Checklist for Windows
+                                November 21, 2019
+
+1. If Python3 is not already, install Python3
+
+Open a browser such as Edge, Chrome, or Firefox. In the  browser, browse to:
+
+https://www.python.org/downloads/windows/
+
+Pick "Latest Python 3 Release"
+
+There may be versions that appear to be more recent than the Latest Release. At
+the time of this writing, 3.8.0 is the latest stable release.
+
+Scroll down and pick:
+If you are running a 64-bit version of Windows:
+__ Download "Windows x86-64 executable installer"
+If you are running a 32-bit version of Windows:
+__ Download "Windows x86 executable installer"
+__ Run the downloaded file 
+__ Check the box to "Add Python to PATH" (This is important and easy to miss.)
+__ Click on "Install Now"
+__ Wait for install to complete.
+
+2. Install the Blackfynn Python module.
+
+Browse to:
+
+https://developer.blackfynn.io/python/latest/quickstart.html#installation
+
+You need to open a command line window so you can type in some commands. Note
+that this is a Windows command line window. It is not a window that has Python
+running in it.
+
+___ In Windows 7, type "cmd" in the start button search box. A list should pop
+    up. You should see "cmd.exe" in the list. Right click on this and select
+    "run as an admin".
+    In Windows 10, right click on the Windows logo in the bottom left
+    corner of the toolbar.  You will see Command Line(Admin) or Windows
+    PowerShell(Admin). Click on this.
+
+You will be asked if it is okay for this app to make changes to the system.
+Click on Okay.  A window should open. 
+
+In the command line window, type (as shown on the web page we browed to above)
+
+pip3 install -U blackfynn
+
+__ Wait for install to complete
+
+Leave the command window open, we will need it later.
+
+3. Install the Blackfynn agent
+
+Open a browser such as Edge, Chrome, or Firefox and browse to:
+
+https://developer.blackfynn.io/agent/index.html
+
+__ Click on the download and install for Windows.
+__ Run the downloaded file.
+__ Accept the license. Accept the default suggestions.
+__ Wait for install to complete.
+
+There is a link on the left side of this page to a tutorial that tells you how
+to configure the agent.
+
+Click on "Tutorial 1 - The basics" and follow the instructions to create a key
+and register a profile. Use the command window to enter the commands. You
+should save your key and secret to a text file.
+
+4. This zip file comes with a demo that you can run when you get to this step.
+__ Edit the "C:\upload_blackfynn\working\win_upload_text.xlsx" file and put
+your dataset name in cell A4. You may want to create a test dataset on the
+blackfynn site to play around with this.
+__ Save this, then select Save as and save it as a .csv file.
+__ Follow the steps in the last item in item #6 below.
+
+5. Create desktop shortcut
+__ Right click in the desktop background and select New->shortcut. Browse to
+where you installed the upload_blackfyn files. Select upload_blackfyn.pyw.
+After the shortcut is added to the desktop, right click on it and select
+Properties. Make sure the Starts in folder is the same as the upload_blackfyn
+files.
+
+6. Create the .csv file the upload program uses to upload files.
+The details of how to do this are the file:
+
+"TEMPLATE-for-SPARC-list-of-files-to-upload.xlsx"
+
+7. Upload files to Blackfynn
+Click on the shortcut. Use the upload Window to select the .csv file you want
+to use and start the upload.
+
+8. If you encounter errors or problems, you can copy the text in the upload
+window to the clip board. Email this to:
+
+dshuman@health.usf.edu
+
+

@@ -1,0 +1,15 @@
+Source: upload-bfynn
+Section: local
+Priority: extra
+Maintainer: dshuman <dshuman@health.usf.edu>
+Build-Depends: debhelper (>= 11),
+Standards-Version: 4.1.2
+Homepage: cisc3
+
+Package: upload-bfynn
+Architecture: all
+Depends: ${misc:Depends},
+    python3 (>= 3.6),
+    python3-tk (>= 3.6)
+Description: Python3 software supporting SPARC projects.
+  Python3 software supporting SPARC projects.

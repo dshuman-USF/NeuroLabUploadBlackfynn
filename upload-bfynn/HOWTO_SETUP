@@ -1,0 +1,37 @@
+
+                    NOTES ON SPARC BLACKFYNN & ETC.
+                    Wed Dec 19 08:25:17 EST 2018
+
+
+There is python2 and python3. Use python3. For historical reasons, python is a
+symbolic link to python2, so you have to type in python3.
+
+Things to install beyond default python3 install:
+
+(1) Python packages not installed by default:
+
+sudo apt install python3-pip
+
+(2) blackfynn python packages
+
+sudo -H pip3 install -U blackfynn
+
+(3)
+from cisc3:/raid/Packages/sparc
+
+sudo dpkg -i blackfynn-agent_0.1.9_amd64.deb
+
+(4)
+If you want to use the python3 bindings for Qt:
+
+sudo -H python3 -m pip install --index-url=http://download.qt.io/snapshots/ci/pyside/5.11/latest pyside2 --trusted-host download.qt.io
+
+
+(5) Links:
+
+http://help.blackfynn.com/developers/configuration/creating-an-api-key-for-the-blackfynn-clients
+
+http://help.blackfynn.com/using-the-command-line-tool
+
+
+

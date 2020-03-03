@@ -1,0 +1,179 @@
+2020-01-13  dshuman@usf.edu
+
+	* TEMPLATE-for-SPARC-list-of-files-to-upload.xlsx: updated documentation
+	* configure.ac: bump to 1.0.17.
+	* Makefile.am: Add zip file to distribution (for next release)
+
+2019-11-05  dshuman@usf.edu
+
+	* upload_bfynn.py: The names of top level folders has been changed. Look up
+	list modified to conform.
+	* upload_bfynn.py: Fix bug in ok_to_update that only shows up in debugger, 
+	refered to a var that does not exist.
+
+2019-08-05  dale@health.usf.edu
+
+	* upload_bfynn.py: Added several manifest.??? names to the PROTECTED_NAMES
+	list.
+	* configure.ac: Bump to 1.0.16.
+
+2019-07-12  dale@health.usf.edu
+
+	* upload_bfynn.py: Decide that reading csv errors are fatal. No way to know
+	what is wrong, best just to tell user and bail.
+	* configure.ac: bump to 1.0.14
+	* upload_bfynn.py: addin a check for collection ready before using it. My
+	test program *STILL* sometimes fails to rename a file.
+	Also add in the total path of the destination folder in printing the
+	destination.
+	* upload_bfynn_win.pyw: Correct dataset to datapack in help text.
+	* upload_bfynn.py: elapsed wait time did not show correct minutes. Use
+	existing function instead of my buggy code.
+	* configure.ac: bump to 1.0.15 and do new release.
+
+2019-07-11  dale@health.usf.edu
+
+	* upload_bfynn_win.pyw: Fix some errors with utf-8 handling by telling user
+	not to do that. Some refactoring to tighten up the code.
+
+2019-07-09  dale@health.usf.edu
+
+	* upload_bfynn_win.pyw: Some additions to help text, and how to boldface
+	something in a line of text. 
+	Text window now spans the width of the window.
+	* Makefile.am: Use sed to update version string in python files. Silly to
+	have to remember to do it manually.
+	* configure.ac: Bump 10 1.0.12
+	* upload_bfynn.py: the do not add extension flag was not being checked when
+	using the agent. Fixed.
+	* configure.ac: Bump to 1.0.13
+
+2019-07-08  dale@health.usf.edu
+
+	* upload_bfynn_win.pyw: Fix bug in grid spacing in window when only 1
+	profile.
+	* upload_bfynn_win.pyw: Bump to 1.0.11
+	* upload_bfynn.py: Bump to 1.0.11
+	* configure.ac: Bump to 1.0.11
+
+2019-06-28  dale@health.usf.edu
+
+	* configure.ac: bump to 1.0.10. The BF folk seem to think they have
+	addressed some of the upload issues I was having, such as clobbering the
+	state. They agreed this was a problem and made some mods. Now, need to mod
+	my code to remove some hackage.
+
+2019-03-14  dale@health.usf.edu
+
+	* configure.ac: Bump to 1.0.9 and release. No significant functional
+	changes.
+	* upload_bfynn.py: Remove setting real name property set and get, the
+	rename operation seems to always work (for now.)
+
+2019-03-08  dale@health.usf.edu
+
+	* upload_bfynn.py: Some diagnostics to catch rare late-night upload errors.
+	Add in counter to keep track of files uploaded.
+
+2019-03-07  dale@health.usf.edu
+
+	* upload_bfynn.py: Not sure why, but at least found what seems to be a
+	reliable way to know when it is safe to rename a data package. If we wait
+	until the dpkg.sources attribute has a value, the rename seems to always
+	work. 
+	* upload_bfynn.py: If you upload two files with the same base name but with
+	different file extensions AND if blackfynn removes the extensions, you
+	cannot rename the second file to have the same name as the first one. To
+	address this, the upload program checks to see if the extension has been
+	removed and if so, adds _ext to the end of the datapackage name.  Files
+	with no extension or are types blackfynn does not know only have the
+	BIDS-SPARC prefix naming text added.
+	* configure.ac: bump up to 1.0.8
+
+2019-03-06  dale@health.usf.edu
+
+	* upload_bfynn.py: name_conform: sometimes the rename fails to "take".
+	Doing a dpkg.update() should resync with the bf server, but sometimes it
+	does not. Some attempts to at least detect this. More work required for
+	this.
+	* upload_bfynn_win.pyw: addin Clear Text button.
+
+2019-03-05  dale@health.usf.edu
+
+	* upload_bfynn.py: get_profile_list():  Look at a different section of the
+	Settings object for the real profile. On Windows, there is an agent profile
+	that the bfAgent program adds (I guess.) It does not have credentials, so
+	you cannot use it to log in to a dataset. We now check for an api_token
+	before adding profile to the list.
+
+2019-03-04  dale@health.usf.edu
+
+	* upload_bfynn.py: name_conform: remove requirement file must have a
+	prefix, files in the base directory may also need extension extending.
+
+2019-03-01  dale@health.usf.edu
+
+	* WindowsInstall.txt: Update to use pip3, not pip. This is a python3
+	program.
+	* upload_bfynn.py: modify name_conform to add the extension to end of fname
+	so we can tell what the heck we are looking at. Also solves problem that
+	you cannot rename file.csv and file.xlsx because without the extension,
+	they have the same fname, which BF throws an exception to. Now, names
+	guaranteed to be unique.
+	* upload_bfynn.py: Fix bug in do_upload where new data type was not created
+	under second level (subjects, samples, etc.) when not using sessions.
+
+2019-02-28  dale@health.usf.edu
+
+	* upload_bfynn.py: Add try except block around reading in .csv header in
+	several functions.  Windows sometimes puts chars in the text that Linux
+	does not seem to recognize. Since we don't care what is in the header, this
+	should not be a fatal error (and it was.)
+	* upload_bfynn.py: fix bug in collection_chk where hung in loop if a file
+	and a collection had the same name when traversing a collection hierarchy.
+	* configure.ac: bump to 1.0.5
+
+2019-02-27  dale@health.usf.edu
+
+	* upload_bfynn_win.pym: Create gui wrapper around upload_bfynn.py module.
+	Release inital version.
+
+2019-02-27  dale@health.usf.edu
+
+	* upload_bfynn.py: break a couple of operations in Setup out to functions
+	so upload_bfynn_win can use this without needing to know about blackfynn
+	api.
+
+2019-02-26  dale@health.usf.edu
+
+	* upload_bfynn.py: addin hooks for the gui window that uses this.
+
+2019-02-11  dale@health.usf.edu
+
+	* upload_bfynn.py: Add in check to make sure dataset is ready before
+	changing name. Is not clear we have to do this, but there was one instance
+	where a file did not get renamed. Could not reproduce. Some sort of race
+	condition between local and bf site states?
+	* upload_bfynn.py: Version 1.0.3
+
+2019-02-07  dale@health.usf.edu
+
+	* Makefile.am: add in upload_bfynn.py to scripts line so it winds up on
+	/usr/local/bin on local installs.
+	* upload_bfynn.py: Major rewrite of how uploads are done. You can upload a
+	set of files as a unit for files that are logically connected and need to
+	wind up in the same dataset.  You can also use wildcards to specify
+	potentially large lists of files.  These are uploaded and renamed one at
+	time for better restartability.  Indicate files to be uploaded as a set
+	using brackets, like so: [path/file1,path/file2].
+
+
+2019-02-05  dshuman@health.usf.edu
+
+	* upload_bfynn.py: Start ChangeLog. 
+	Fix bugs:
+	1. Blank path/fname or path/fname that was just spaces were not filtered
+	out and program complained about not finding invisible filenames.
+	2. Did not correctly step back out to the top level collection when a new
+	subject line was encountered.
+	3. Add in print version statement.
